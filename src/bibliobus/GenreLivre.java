@@ -1,0 +1,10 @@
+package bibliobus;
+
+public enum GenreLivre {
+	NON_SPECIFIE,
+	LITTERATURE,
+	LITTERATURE_JEUNESSE,
+	POLICIER,
+	BANDE_DESSINEE,
+	DOCUMENTAIRE
+}

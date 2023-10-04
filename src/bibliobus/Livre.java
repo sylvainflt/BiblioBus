@@ -1,74 +1,51 @@
 package bibliobus;
 
-public class Livre {
-
-	private String titre;
-	
-	private String auteur;
+public class Livre extends Media{
 	
 	private String editeur;
+			
+	private GenreLivre genre = GenreLivre.NON_SPECIFIE;	
 	
-	private int nbExemplaires = 1;	
-	
-	private Genre genre = Genre.NON_SPECIFIE;
-	
-	public Livre(String titre, String auteur, String editeur) {
-		this.titre = titre;
-		this.auteur = auteur;
+	public Livre(String titre, String auteur, String editeur, String bibliobus) {
+		super(titre, auteur, bibliobus);
 		this.editeur = editeur;
+		
 	}
 	
-	public Livre(String titre, String auteur, String editeur, Genre genre) {
-		this.titre = titre;
-		this.auteur = auteur;
+	public Livre(String titre, String auteur, String editeur, GenreLivre genre, String bibliobus) {
+		super(titre, auteur, bibliobus);
 		this.editeur = editeur;
-		this.genre = genre;
+		this.genre = genre;		
 	}
 	
 	public String getTitre() {
-		return titre;
+		return super.getTitre();
 	}
 
 	public String getAuteur() {
-		return auteur;
+		return super.getAuteur();
 	}
 
 	public String getEditeur() {
 		return editeur;
 	}
 
-	public Genre getGenre() {
+	public GenreLivre getGenre() {
 		return genre;
 	}
 
-	public void setGenre(Genre genre) {
+	public void setGenre(GenreLivre genre) {
 		this.genre = genre;
 	}
 
-	public void nouvelExemplaire() {		
-		nbExemplaires++;	
-	}
-	
-	public void nouvelExemplaire(int nb) {
-		if(nb > 0) {
-			nbExemplaires += nb;
-		}
-	}
-
-	public void perteExemplaire() {
-		if(nbExemplaires > 0) {
-			nbExemplaires--;
-		}
-	}
-	
-	public boolean estPresent() {
-		return nbExemplaires > 0;
-	}
+	public int getNbExemplaires() {
+		return super.getNbExemplaires();
+	}		
 	
 	public String toString() {
 		return
-				"le livre : "+titre+", écrit par "+auteur+" et édité par "+editeur+
-				" appartenant au genre "+genre+ " est présent en "+nbExemplaires+" exemplaire(s)";
+				"le livre : "+super.getTitre()+", écrit par "+super.getAuteur()+" et édité par "+editeur+
+				" appartenant au genre "+genre+ " est présent en "+super.getNbExemplaires()+" exemplaire(s)";
 	}
 	
 	public boolean equals(Livre l) {
@@ -79,6 +56,6 @@ public class Livre {
 	}
 	
 	public Livre nouvelEditeur(String unEditeur) {
-		return new Livre(titre, auteur, unEditeur, genre);
+		return new Livre(super.getTitre(), super.getAuteur(), unEditeur, genre, "theBus");
 	}
 }
