@@ -33,7 +33,7 @@ public class Disque extends Media{
 	
 	public String toString() {
 		return
-				"le disque : "+super.getTitre()+", écrit par "+super.getAuteur()+
-				" appartenant au genre "+genre+ " est présent en "+super.getNbExemplaires()+" exemplaire(s)";
+				"le disque : "+titre+", écrit par "+auteur+
+				" appartenant au genre "+genre+ " est présent en "+nbExemplaires+" exemplaire(s)";
 	}
 }

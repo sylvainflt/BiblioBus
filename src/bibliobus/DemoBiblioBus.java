@@ -4,7 +4,7 @@ public class DemoBiblioBus {
 
 	public static void main(String[] args) {
 		
-		BiblioBus bibliobus = new BiblioBus("theBus",2);
+		BiblioBus bibliobus = new BiblioBus("theBus",5);
 				
 		bibliobus.afficheCatalogue();
 		
@@ -27,7 +27,12 @@ public class DemoBiblioBus {
 		for(int i=0; i<livresIdsAuteur.length; i++) {
 			System.out.println(livresIdsAuteur[i]);
 		}
-			
+		
+		bibliobus.ajoutDisque("disque1", "auteurD1","theBus");
+		bibliobus.ajoutDisque("disque1", "auteurD1","theBus");
+		bibliobus.ajoutDisque("disque2", "auteurD2","theBus");
+		
+		bibliobus.afficheCatalogue();
 	}
 
 }

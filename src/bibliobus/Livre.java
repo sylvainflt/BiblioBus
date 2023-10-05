@@ -19,11 +19,11 @@ public class Livre extends Media{
 	}
 	
 	public String getTitre() {
-		return super.getTitre();
+		return titre;
 	}
 
 	public String getAuteur() {
-		return super.getAuteur();
+		return auteur;
 	}
 
 	public String getEditeur() {
@@ -44,8 +44,8 @@ public class Livre extends Media{
 	
 	public String toString() {
 		return
-				"le livre : "+super.getTitre()+", écrit par "+super.getAuteur()+" et édité par "+editeur+
-				" appartenant au genre "+genre+ " est présent en "+super.getNbExemplaires()+" exemplaire(s)";
+				"le livre : "+titre+", écrit par "+auteur+" et édité par "+editeur+
+				" appartenant au genre "+genre+ " est présent en "+nbExemplaires+" exemplaire(s)";
 	}
 	
 	public boolean equals(Livre l) {

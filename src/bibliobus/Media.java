@@ -2,13 +2,13 @@ package bibliobus;
 
 public class Media {
 
-	private String titre;
+	protected String titre;
 	
-	private String auteur;
+	protected String auteur;
 	
-	private int nbExemplaires = 1;	
+	protected int nbExemplaires = 1;	
 	
-	private String bibliobus;
+	protected String bibliobus;
 	
 	public Media(String titre, String auteur, String bibliobus) {
 		this.titre = titre;

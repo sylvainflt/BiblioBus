@@ -50,6 +50,16 @@ public class BiblioBus {
 		}
 	}
 	
+	public void ajouterExemplaire(String titre, String auteur) {
+		for(int i=0; i<getNbMedias(); i++) {
+			if(medias[i].getTitre().equalsIgnoreCase(titre)
+					&& medias[i].getAuteur().equalsIgnoreCase(auteur)) {
+				medias[i].nouvelExemplaire();
+				System.out.println("Ajout d'un exemplaire du disque : "+titre+" par "+auteur);
+			}			
+		}
+	}
+	
 	public void ajoutLivre(String titre, String auteur, String editeur, String bibliobus) {
 		
 		if(!estPresent(titre, auteur, editeur)) {
@@ -90,6 +100,28 @@ public class BiblioBus {
 			}
 		}else {
 			ajouterExemplaire(titre, auteur, editeur);
+		}
+		
+	}
+	
+	public void ajoutDisque(String titre, String auteur, String bibliobus) {
+		
+		if(!estPresent(titre, auteur)) {
+			// trouver la prochaine place
+			int i = 0;
+			while(i < medias.length && medias[i] != null) {
+				i++;
+			}
+			// si une place libre
+			if(i < medias.length) {
+				// ajout du livre
+				medias[i] = new Disque(titre, auteur, bibliobus);
+				System.out.println("Ajout du disque : "+titre+" par "+auteur);
+			}else {
+				System.out.println("Le bibliobus "+nom+" de taille "+medias.length+" est complet.");
+			}
+		}else {
+			ajouterExemplaire(titre, auteur);
 		}
 		
 	}
